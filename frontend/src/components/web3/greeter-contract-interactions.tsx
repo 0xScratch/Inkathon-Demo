@@ -83,6 +83,22 @@ export const GreeterContractInteractions: FC = () => {
     }
   }
 
+  // Reverse Greeting
+  const reverseGreeting = async () => {
+    if (!activeAccount || !contract || !activeSigner || !api) {
+      toast.error('Wallet not connected. Try again…')
+      return
+    }
+
+    try {
+      await contractTxWithToast(api, activeAccount.address, contract, 'reverseMessage', {}, [])
+    } catch (e) {
+      console.error(e)
+    } finally {
+      await fetchGreeting()
+    }
+  }
+
   if (!api) return null
 
   return (
@@ -134,8 +150,21 @@ export const GreeterContractInteractions: FC = () => {
           </Card>
         </Form>
 
+        {/* Reverse Greeting */}
+        <Card className="mb-10">
+          <CardContent className="p-6">
+            <Button
+              onClick={reverseGreeting}
+              className="w-full bg-primary font-bold"
+              disabled={fetchIsLoading || !contract}
+            >
+              Reverse Greeting
+            </Button>
+          </CardContent>
+        </Card>
+
         {/* Contract Address */}
-        <p className="text-center font-mono text-xs text-gray-600">
+        <p className="mb-11 text-center font-mono text-xs text-gray-600">
           {contract ? contractAddress : 'Loading…'}
         </p>
       </div>
