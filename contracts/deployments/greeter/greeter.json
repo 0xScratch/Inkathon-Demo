@@ -1,12 +1,12 @@
 {
   "source": {
-    "hash": "0x586a59fc04eeb2b7d0e89b7d7ce98689f8e520a27a3522ca3b1a112f0129af9d",
+    "hash": "0x64e10e9a6fc988a176389b5f1f390682cdfd968e73adebe9cdb9c76c4cb8c5ef",
     "language": "ink! 4.3.0",
-    "compiler": "rustc 1.75.0",
+    "compiler": "rustc 1.76.0",
     "build_info": {
       "build_mode": "Release",
       "cargo_contract_version": "3.2.0",
-      "rust_toolchain": "stable-x86_64-pc-windows-msvc",
+      "rust_toolchain": "stable-x86_64-unknown-linux-gnu",
       "wasm_opt_settings": {
         "keep_debug_symbols": false,
         "optimization_passes": "Z"
@@ -190,6 +190,24 @@
           "type": 1
         },
         "selector": "0x1fe7426f"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [
+          " Reverses and stores the 'message' string"
+        ],
+        "label": "reverse_message",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 1
+        },
+        "selector": "0x7aee9f0f"
       }
     ]
   },

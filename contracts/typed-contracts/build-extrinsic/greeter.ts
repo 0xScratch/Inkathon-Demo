@@ -42,4 +42,14 @@ export default class Methods {
 		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "setMessage", [newValue], __options);
 	}
 
+	/**
+	 * reverseMessage
+	 *
+	*/
+	"reverseMessage" (
+		__options: GasLimit,
+	){
+		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "reverseMessage", [], __options);
+	}
+
 }

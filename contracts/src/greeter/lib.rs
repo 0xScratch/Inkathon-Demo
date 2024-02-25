@@ -48,6 +48,12 @@ mod greeter {
                 message: new_value,
             });
         }
+
+        /// Reverses and stores the 'message' string
+        #[ink(message)]
+        pub fn reverse_message(&mut self) {
+            self.message = self.message.chars().rev().collect::<String>();
+        }
     }
 
     #[cfg(test)]
@@ -76,6 +82,16 @@ mod greeter {
             let message_2 = String::from("gn");
             greeter.set_message(message_2.clone());
             assert_eq!(greeter.greet(), message_2);
+        }
+
+        #[ink::test]
+        fn reverse_message_works() {
+            let message_1: String = String::from("gm ink!");
+            let message_1_reversed: String = String::from("!kni mg");
+            let mut greeter: Greeter = Greeter::new(message_1.clone());
+            assert_eq!(greeter.greet(), message_1);
+            greeter.reverse_message();
+            assert_eq!(greeter.greet(), message_1_reversed);
         }
     }
 }

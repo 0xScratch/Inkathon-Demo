@@ -53,4 +53,15 @@ export default class Methods {
 		return queryOkJSON( this.__apiPromise, this.__nativeContract, this.__callerAddress, "setMessage", [newValue], __options , (result) => { return handleReturnType(result, getTypeDescription(1, DATA_TYPE_DESCRIPTIONS)); });
 	}
 
+	/**
+	* reverseMessage
+	*
+	* @returns { Result<null, ReturnTypes.LangError> }
+	*/
+	"reverseMessage" (
+		__options ? : GasLimit,
+	): Promise< QueryReturnType< Result<null, ReturnTypes.LangError> > >{
+		return queryOkJSON( this.__apiPromise, this.__nativeContract, this.__callerAddress, "reverseMessage", [], __options , (result) => { return handleReturnType(result, getTypeDescription(1, DATA_TYPE_DESCRIPTIONS)); });
+	}
+
 }

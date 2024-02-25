@@ -54,4 +54,16 @@ export default class Methods {
 		}, [newValue], __options);
 	}
 
+	/**
+	* reverseMessage
+	*
+	*/
+	"reverseMessage" (
+		__options ? : GasLimit,
+	){
+		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "reverseMessage", (events: EventRecord) => {
+			return decodeEvents(events, this.__nativeContract, EVENT_DATA_TYPE_DESCRIPTIONS);
+		}, [], __options);
+	}
+
 }
