@@ -151,7 +151,7 @@ export const GreeterContractInteractions: FC = () => {
         </Form>
 
         {/* Reverse Greeting */}
-        <Card className="mb-10">
+        <Card className="mb-8">
           <CardContent className="p-6">
             <Button
               onClick={reverseGreeting}
