@@ -164,7 +164,7 @@ export const GreeterContractInteractions: FC = () => {
         </Card>
 
         {/* Contract Address */}
-        <p className="mb-11 text-center font-mono text-xs text-gray-600">
+        <p className="mb-10 text-center font-mono text-xs text-gray-600">
           {contract ? contractAddress : 'Loading…'}
         </p>
       </div>

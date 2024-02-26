@@ -27,7 +27,7 @@ export default function HomePage() {
         {/* Connect Wallet Button */}
         <ConnectButton />
 
-        <div className="mt-12 flex w-full flex-wrap items-start justify-center gap-4">
+        <div className="mt-11 flex w-full flex-wrap items-start justify-center gap-4">
           {/* Chain Metadata Information */}
           <ChainInfo />
 
