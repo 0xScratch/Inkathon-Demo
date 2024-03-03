@@ -147,7 +147,6 @@ pub mod token {
     impl PSP22Mintable for Token {
         #[ink(message)]
         fn mint(&mut self, to: AccountId, amount: u128) -> Result<(), PSP22Error> {
-            // assert_eq!(Some(self.env().caller()), self.owner, "Only owner can mint");
             let events = self.data.mint(to, amount)?;
             self.emit_events(events);
             Ok(())

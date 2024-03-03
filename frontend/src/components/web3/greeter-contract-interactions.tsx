@@ -103,7 +103,7 @@ export const GreeterContractInteractions: FC = () => {
 
   return (
     <>
-      <div className="flex max-w-[22rem] grow flex-col gap-4">
+      <div className="flex max-w-[22rem] grow flex-col gap-5">
         <h2 className="text-center font-mono text-gray-400">Greeter Smart Contract</h2>
 
         <Form {...form}>
