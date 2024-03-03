@@ -324,3 +324,17 @@ They are stored under `contracts/typed-contracts/` and imported directly from th
 - [ink!athon Telegram Group](https://t.me/inkathon)
 
 </details>
+
+
+
+# Files that need a changes if ever adding a new account...Steps to follow
+
+1. Add a new directory in `contracts/src/` with the name of the new contract
+2. Add it as another workspace member to the `contracts/Cargo.toml` file
+3. Then run `pnpm run build`
+4. Add another dpeloyment script and make changes accordingly...
+5. Now run a new local node using `pnpm run node`
+6. Then deploy the contracts on the local node using `pnpm run script <script-name>`
+7. You might need to tackle some dynamic importing in that `deployments.ts` file in `frontend/deployments/` directory
+
+That's it till now...
