@@ -12,7 +12,7 @@ export enum ContractIds {
 }
 
 export const getDeployments = async (): Promise<SubstrateDeployment[]> => {
-  // const networks = env.supportedChains
+  const networks = env.supportedChains
   const deployments: SubstrateDeployment[] = []
   // console.log(networks)
 

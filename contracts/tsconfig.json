@@ -24,6 +24,7 @@
     "./deployments/**/*.json",
     "./deployments/**/*.ts",
     "./scripts/**/*.ts",
-    "./typed-contracts/**/*.ts"
+    "./typed-contracts/**/*.ts",
+    ""
   ]
 }
