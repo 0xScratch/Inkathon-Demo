@@ -130,16 +130,34 @@ export const TokenContractInteractions: FC = () => {
 
   // Mint Token
   const mint: SubmitHandler<z.infer<typeof formSchema>> = async ({ value }) => {
-    if (!activeAccount || !contract || !activeSigner || !api) {
+    console.log('Mint function called with value:', value)
+    if (!activeAccount || !contract || !activeSigner || !api || !typedContract) {
       toast.error('Wallet not connected. Try again…')
       return
     }
 
     try {
-      await contractTxWithToast(api, activeAccount.address, contract, 'mint', {}, [value])
+      // Call the mint function with the active account address and the amount
+
+      console.log('activeAccount: ', activeAccount)
+      console.log('value: ', value)
+      if (!activeAccount?.address) {
+        console.log('No active account found')
+        return
+      }
+      const tx = await typedContract.tx.mint(activeAccount.address, Number(value))
+      console.log('tx: ', tx)
+      // Send the transaction
+      const txResult = await tx.send(activeAccount.address)
+
+      if (txResult.isError) {
+        throw new Error(`Failed to mint tokens: ${txResult.errorMessage}`)
+      }
+
       reset()
     } catch (e) {
       console.error(e)
+      // toast.error(`Error while minting tokens: ${e.message}`)
     } finally {
       tokenSupply()
       balanceOf()
@@ -174,6 +192,7 @@ export const TokenContractInteractions: FC = () => {
                         className="bg-primary font-bold"
                         disabled={form.formState.isSubmitting}
                         isLoading={form.formState.isSubmitting}
+                        onClick={() => mint(form.getValues())}
                       >
                         Mint
                       </Button>
