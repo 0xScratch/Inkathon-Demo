@@ -137,23 +137,9 @@ export const TokenContractInteractions: FC = () => {
     }
 
     try {
-      // Call the mint function with the active account address and the amount
+      // console.log('Contract: ', contract)
 
-      console.log('activeAccount: ', activeAccount)
-      console.log('value: ', value)
-      if (!activeAccount?.address) {
-        console.log('No active account found')
-        return
-      }
-      const tx = await typedContract.tx.mint(activeAccount.address, Number(value))
-      console.log('tx: ', tx)
-      // Send the transaction
-      const txResult = await tx.send(activeAccount.address)
-
-      if (txResult.isError) {
-        throw new Error(`Failed to mint tokens: ${txResult.errorMessage}`)
-      }
-
+      await typedContract.tx.mint(activeAccount.address, Number(value))
       reset()
     } catch (e) {
       console.error(e)

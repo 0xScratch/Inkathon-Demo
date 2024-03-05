@@ -21,10 +21,10 @@
   },
   "exclude": ["node_modules", "dist", "target", "./*/target"],
   "include": [
+    "./typed-contracts/**/*.json",
     "./deployments/**/*.json",
     "./deployments/**/*.ts",
     "./scripts/**/*.ts",
-    "./typed-contracts/**/*.ts",
-    ""
+    "./typed-contracts/**/*.ts"
   ]
 }
