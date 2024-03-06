@@ -138,8 +138,10 @@ export const TokenContractInteractions: FC = () => {
 
     try {
       // console.log('Contract: ', contract)
-
-      await typedContract.tx.mint(activeAccount.address, Number(value))
+      await contractTxWithToast(api, activeAccount.address, contract, 'mint', {}, [
+        activeAccount.address,
+        Number(value),
+      ])
       reset()
     } catch (e) {
       console.error(e)
