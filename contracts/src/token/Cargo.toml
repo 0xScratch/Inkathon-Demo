@@ -22,7 +22,3 @@ std = [
     "scale-info/std", "psp22-full/std",
 ]
 ink-as-dependency = []
-
-[[test]]
-name = "unit_tests"
-path = "tests/unit.rs"
